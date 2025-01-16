@@ -1,8 +1,6 @@
 public class Train {
     private String name, product, origin, destination;
     private int weight, miles;
-    private boolean isEngine;
-
 
     public Train (String Name, String Product, String Origin, String Destination, int Weight, int Miles){
         name = Name;
@@ -31,7 +29,7 @@ public class Train {
     }
 
     public int getWeight(){
-        return weight
+        return weight;
     }
 
     public int getMiles(){
