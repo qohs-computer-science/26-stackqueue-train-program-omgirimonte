@@ -1,6 +1,7 @@
 public class Train {
     private String name, product, origin, destination;
     private int weight, miles;
+    boolean isEng;
 
     public Train (String Name, String Product, String Origin, String Destination, int Weight, int Miles){
         name = Name;
@@ -9,6 +10,17 @@ public class Train {
         destination = Destination;
         weight = Weight;
         miles = Miles;
+    }
+
+    public Train (String engineName, String place){
+        name = engineName;
+        destination = place;
+        product = "";
+        origin = "";
+        weight = 0;
+        miles = 0;
+        isEng = true;
+        
     }
 
 

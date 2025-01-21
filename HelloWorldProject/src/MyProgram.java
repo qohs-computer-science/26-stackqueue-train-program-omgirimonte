@@ -1,7 +1,7 @@
 /*
- * TODO: Name
+ * TODO: Owen Girimonte
  * TODO: Date
- * TODO: Class Period
+ * TODO: 7
  * TODO: Program Description
  */
 import java.util.Scanner;
@@ -35,6 +35,10 @@ public class MyProgram {
 					x.nextLine();
 					carList.add(new Train(one,two,three,four,five,six));
 				}
+				else{
+					carList.add(new Train(spot, x.nextLine()) );
+					x.nextLine();
+				}
 			}
 
 			Stack <Train> bMore = new Stack<>();
@@ -59,6 +63,7 @@ public class MyProgram {
 							bWeight+=tempCar.getWeight();
 						}
 						else{
+							bMore.push(new Train("ENG00000", "Baltimore"));
 							System.out.println(bMore.peek().getName()+" leaving for "+bMore.peek().getDestination()+" with the following cars:");
 							while(bMore.size()>0){
 								Train valCar = bMore.pop();
@@ -73,6 +78,8 @@ public class MyProgram {
 							cWeight+=tempCar.getWeight();
 						}
 						else{
+							Charl.push(new Train("ENG00000", "Charlotte"));
+							System.out.println(Charl.peek().getName()+" leaving for "+Charl.peek().getDestination()+" with the following cars:");
 							while(Charl.size()>0){
 								Train valCar = Charl.pop();
 								System.out.println(valCar.getName()+" containing "+valCar.getProduct());
@@ -87,19 +94,23 @@ public class MyProgram {
 							tWeight+=tempCar.getWeight();
 						}
 						else{
+							Tren.push(new Train("ENG00000", "Trenton"));
+							System.out.println(Tren.peek().getName()+" leaving for "+Tren.peek().getDestination()+" with the following cars:");
 							while(Tren.size()>0){
 								Train valCar = Tren.pop();
 								System.out.println(valCar.getName()+" containing "+valCar.getProduct());
 							}
 							tWeight = 0;
+							System.out.println("No remaining cars in the other track");
+							System.out.println(other);
 						}
 					}
 					else {
 						
-							while(other.size()>0){
-								Train valCar = other.pop();
-								System.out.println(valCar.getName()+" containing "+valCar.getProduct());
-							}
+						while(other.size()>0){
+							Train valCar = other.pop();
+							System.out.println(valCar.getName()+" containing "+valCar.getProduct());
+						}
 						
 						
 					}
@@ -108,7 +119,7 @@ public class MyProgram {
 					reviewList.add(tempCar);
 				}
 			}
-
+			System.out.println("Processing cars in review...");
 			while (reviewList.size()>0){
 				Train tempCar = reviewList.remove();
 					if ((tempCar.getDestination().equals("Baltimore"))){
@@ -131,6 +142,8 @@ public class MyProgram {
 							cWeight+=tempCar.getWeight();
 						}
 						else{
+							Charl.push(new Train("ENG00000", "Charlotte"));
+							System.out.println(Charl.peek().getName()+" leaving for "+Charl.peek().getDestination()+" with the following cars:");
 							while(Charl.size()>0){
 								Train valCar = Charl.pop();
 								System.out.println(valCar.getName()+" containing "+valCar.getProduct());
@@ -145,6 +158,8 @@ public class MyProgram {
 							tWeight+=tempCar.getWeight();
 						}
 						else{
+							Tren.push(new Train("ENG00000", "Trenton"));
+							System.out.println(Tren.peek().getName()+" leaving for "+Tren.peek().getDestination()+" with the following cars:");
 							while(Tren.size()>0){
 								Train valCar = Tren.pop();
 								System.out.println(valCar.getName()+" containing "+valCar.getProduct());
@@ -162,6 +177,40 @@ public class MyProgram {
 						
 					}
 			}
+			System.out.println("Departing all tracks:");
+			bMore.push(new Train("ENG00000", "Baltimore"));
+			System.out.println(bMore.peek().getName()+" leaving for "+bMore.peek().getDestination()+" with the following cars:");
+			while(bMore.size()>0){
+				Train valCar = bMore.pop();
+				System.out.println(valCar.getName()+" containing "+valCar.getProduct());
+				}
+			bWeight = 0;
+			
+
+			Charl.push(new Train("ENG00000", "Charlotte"));
+			System.out.println(Charl.peek().getName()+" leaving for "+Charl.peek().getDestination()+" with the following cars:");
+			while(Charl.size()>0){
+				Train valCar = Charl.pop();
+				System.out.println(valCar.getName()+" containing "+valCar.getProduct());
+			}
+			cWeight = 0;
+
+
+
+			Tren.push(new Train("ENG00000", "Trenton"));
+			System.out.println(Tren.peek().getName()+" leaving for "+Tren.peek().getDestination()+" with the following cars:");
+			while(Tren.size()>0){
+				Train valCar = Tren.pop();
+				System.out.println(valCar.getName()+" containing "+valCar.getProduct());
+			}
+			tWeight = 0;
+
+
+			while(other.size()>0){
+				Train valCar = other.pop();
+				System.out.println(valCar.getName()+" containing "+valCar.getProduct());
+			}
+
 		}
 		catch(Exception e)
 		{
