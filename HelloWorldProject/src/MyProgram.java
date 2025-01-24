@@ -20,25 +20,24 @@ public class MyProgram {
 		try{
 			File f = new File("HelloWorldProject/src/data.txt");
 			x = new Scanner (f);
-			String name = x.nextLine();
-			System.out.println(name);
+
 			Queue <Train> carList = new LinkedList<Train>();
 			String spot = x.nextLine();
 			while(!spot.equals("END")){
 				if (spot.substring(0,3).equals("CAR")){
-					String one = x.nextLine();
 					String two = x.nextLine();
 					String three = x.nextLine();
 					String four = x.nextLine();
 					int five = x.nextInt();
 					int six = x.nextInt();
 					x.nextLine();
-					carList.add(new Train(one,two,three,four,five,six));
+					carList.add(new Train(spot,two,three,four,five,six));
 				}
 				else{
 					carList.add(new Train(spot, x.nextLine()) );
-					x.nextLine();
+		
 				}
+				spot = x.nextLine();
 			}
 
 			Stack <Train> bMore = new Stack<>();
@@ -134,6 +133,7 @@ public class MyProgram {
 								System.out.println(valCar.getName()+" containing "+valCar.getProduct());
 							}
 							bWeight = 0;
+							System.out.println("\n");
 						}
 					}
 					else if ((tempCar.getDestination().equals("Charlotte"))){
@@ -149,6 +149,7 @@ public class MyProgram {
 								System.out.println(valCar.getName()+" containing "+valCar.getProduct());
 							}
 							cWeight = 0;
+							System.out.println("\n");
 						}
 						
 					}
@@ -165,6 +166,7 @@ public class MyProgram {
 								System.out.println(valCar.getName()+" containing "+valCar.getProduct());
 							}
 							tWeight = 0;
+							System.out.println("\n");
 						}
 					}
 					else {
@@ -178,33 +180,54 @@ public class MyProgram {
 					}
 			}
 			System.out.println("Departing all tracks:");
-			bMore.push(new Train("ENG00000", "Baltimore"));
-			System.out.println(bMore.peek().getName()+" leaving for "+bMore.peek().getDestination()+" with the following cars:");
-			while(bMore.size()>0){
-				Train valCar = bMore.pop();
-				System.out.println(valCar.getName()+" containing "+valCar.getProduct());
-				}
-			bWeight = 0;
 			
-
-			Charl.push(new Train("ENG00000", "Charlotte"));
-			System.out.println(Charl.peek().getName()+" leaving for "+Charl.peek().getDestination()+" with the following cars:");
-			while(Charl.size()>0){
-				Train valCar = Charl.pop();
-				System.out.println(valCar.getName()+" containing "+valCar.getProduct());
+			if (!bMore.isEmpty()){
+				bMore.push(new Train("ENG00000", "Baltimore"));
+				System.out.println(bMore.peek().getName()+" leaving for "+bMore.peek().getDestination()+" with the following cars:");
+				while(bMore.size()>0){
+					bMore.pop();
+					Train valCar = bMore.pop();
+					System.out.println(valCar.getName()+" containing "+valCar.getProduct());
+					}
+				bWeight = 0;
+				System.out.println("The Baltimore track is empty");
 			}
-			cWeight = 0;
-
-
-
-			Tren.push(new Train("ENG00000", "Trenton"));
-			System.out.println(Tren.peek().getName()+" leaving for "+Tren.peek().getDestination()+" with the following cars:");
-			while(Tren.size()>0){
-				Train valCar = Tren.pop();
-				System.out.println(valCar.getName()+" containing "+valCar.getProduct());
+			else{
+				System.out.println("The Baltimore track is empty");
 			}
-			tWeight = 0;
 
+			
+			if(!Charl.isEmpty()){
+				Charl.push(new Train("ENG00000", "Charlotte"));
+				System.out.println(Charl.peek().getName()+" leaving for "+Charl.peek().getDestination()+" with the following cars:");
+				while(Charl.size()>0){
+					Charl.pop();
+					Train valCar = Charl.pop();
+					System.out.println(valCar.getName()+" containing "+valCar.getProduct());
+				}
+				cWeight = 0;
+				System.out.println("The Charlotte track is empty");
+			}
+			else{
+				System.out.println("The Charlotte track is empty");
+			}
+
+
+			if (!Tren.isEmpty()){
+				Tren.push(new Train("ENG00000", "Trenton"));
+				System.out.println(Tren.peek().getName()+" leaving for "+Tren.peek().getDestination()+" with the following cars:");
+				while(Tren.size()>0){
+					Tren.pop();
+					Train valCar = Tren.pop();
+					System.out.println(valCar.getName()+" containing "+valCar.getProduct());
+				}
+				tWeight = 0;
+				System.out.println("The Trenton track is empty");
+			}
+			else{
+				System.out.println("The Trenton track is empty");
+
+			}
 
 			while(other.size()>0){
 				Train valCar = other.pop();
