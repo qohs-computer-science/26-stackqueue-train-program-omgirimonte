@@ -211,7 +211,7 @@ public class MyProgram {
 			else{
 				System.out.println("The Charlotte track is empty");
 			}
-
+ 
 
 			if (!Tren.isEmpty()){
 				Tren.push(new Train("ENG00000", "Trenton"));
